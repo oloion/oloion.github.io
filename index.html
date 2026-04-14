@@ -2,62 +2,223 @@
 <html lang="ru">
 <head>
   <meta charset="utf-8" />
-  <title>Oloion</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Oloion | Personal Page</title>
   <style>
+    /* Основные переменные для легкой смены цветов */
+    :root {
+      --primary-color: #fad201;
+      --text-dark: #333;
+      --text-light: #555;
+      --bg-gradient: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    }
+
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: var(--bg-gradient);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      color: var(--text-dark);
+    }
+
+    /* Анимация фона */
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Контейнер с эффектом стекла */
+    .container {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
       max-width: 600px;
+      width: 90%;
       margin: 40px auto;
-      padding: 0 20px;
-      line-height: 1.6;
-      background: #fad201;
+      padding: 40px;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1s forwards;
     }
+
+    /* Анимация появления */
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     h1 {
-      color: fad201;
+      color: #333;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      border-bottom: 3px solid var(--primary-color);
+      display: inline-block;
+      padding-bottom: 5px;
     }
+
+    h2 {
+      font-size: 1.4rem;
+      color: #444;
+      margin-top: 30px;
+    }
+
     p {
-      color: ffff00
+      color: var(--text-light);
+      line-height: 1.6;
+      margin-bottom: 15px;
     }
+
+    /* Аватарка */
+    .avatar {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid var(--primary-color);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      margin-bottom: 20px;
+    }
+
+    .avatar:hover {
+      transform: scale(1.05) rotate(5deg);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    }
+
+    /* Ссылки как кнопки */
+    a {
+      color: #23a6d5;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    a:hover {
+      color: #e73c7e;
+      text-decoration: underline;
+    }
+
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin: 20px 0;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: var(--primary-color);
+      color: #333 !important;
+      border-radius: 25px;
+      text-decoration: none !important;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .btn:hover {
+      background-color: #ffd700;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+
+    /* Блок истории */
+    .story-box {
+      background: #fffbe6;
+      border-left: 5px solid var(--primary-color);
+      padding: 20px;
+      margin-top: 30px;
+      border-radius: 8px;
+      text-align: left;
+      font-style: italic;
+    }
+
+    .story-title {
+      text-align: center;
+      font-style: normal;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 15px;
+    }
+
+    /* Задержка анимации для разных элементов */
+    .delay-1 { animation-delay: 0.2s; }
+    .delay-2 { animation-delay: 0.4s; }
+    .delay-3 { animation-delay: 0.6s; }
+
   </style>
 </head>
 <body>
-  <h1>👋 Welcome to my page! Here you can learn more about me and my projects.</h1>
 
-  
-    <h1>About me</h1>
+  <div class="container">
+    
+    <!-- Приветствие -->
+    <h1 class="fade-in">👋 Welcome!</h1>
+    <p class="fade-in delay-1">Here you can learn more about me and my projects.</p>
 
-  <img src="https://avatars.githubusercontent.com/u/199402172?v=4" alt="Avatar Oloion" class="avatar" />
+    <!-- Обо мне -->
+    <section id="about">
+      <img src="https://avatars.githubusercontent.com/u/199402172?v=4" alt="Avatar Oloion" class="avatar fade-in delay-1" />
+      
+      <h2>About Me</h2>
+      <p><strong>Name:</strong> Oloion</p>
+      <p><strong>Location:</strong> RU 🇷🇺</p>
+      <p><strong>Email:</strong> <a href="mailto:oloion@proton.me">oloion@proton.me</a></p>
 
-  <p><strong>Name:</strong> Oloion</p>
-  <p><strong>location:</strong> RU</p>
-  <p><strong>Email:</strong> oloion@proton.me</p>
-  <p><strong>Github:</strong> <a href="https://oloion.github.io" target="_blank">oloion.github.io</a></p>
-  <p><strong>Twitter:</strong> <a href="https://twitter.com/oloion" target="_blank">@oloion</a></p>
-  <p><strong>GitHub:</strong> <a href="https://github.com/oloion" target="_blank">github.com/oloion</a></p>
+      <div class="social-links fade-in delay-2">
+        <a href="https://github.com/oloion" target="_blank" class="btn">GitHub Profile</a>
+        <a href="https://oloion.github.io" target="_blank" class="btn">My Website</a>
+        <a href="https://twitter.com/oloion" target="_blank" class="btn">Twitter / X</a>
+      </div>
+    </section>
 
-  <h1> My projects</h1>
+    <!-- Проекты -->
+    <section id="projects">
+      <h2>🚀 My Projects</h2>
+      
+      <div style="background: white; padding: 15px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+        <p style="margin: 0 0 10px 0;">
+          <a href="https://github.com/oloion/Win11Checker1.1" target="_blank"><strong>Win11Checker1.1</strong></a>
+        </p>
+        <p style="font-size: 0.9em; margin: 0;">A simple Windows utility to verify the installation and basic system health of Windows 10/11.</p>
+      </div>
 
-  <p><a href="https://github.com/oloion/Win11Checker1.1" target="_blank"><strong>Win11Checker1.1</strong></a></p>
+      <p style="margin-top: 15px; font-size: 0.9em; color: #888;">*(more information and programs soon)*</p>
+    </section>
 
-  <p>A simple Windows utility to verify the installation and basic system health of Windows 10/11.</p>
+    <!-- История -->
+    <section id="story">
+      <div class="story-box fade-in delay-3">
+        <div class="story-title">🦛 The Hippopotamus and the Little Fish 🐠</div>
+        
+        <p>Once upon a time, there was a big, kind hippopotamus named Henry. He lived in a beautiful blue lake in Africa. Henry was very lonely because he had no friends.</p>
 
-  <p>*(more information and programs soon)*</p>
+        <p>One sunny morning, Henry saw a little goldfish swimming near the shore. The fish looked sad and scared.</p>
 
-  <h1> And now, a little story :)</h1>
-  
-  <h1>🦛The Hippopotamus and the Little Fish🐠</h1>
+        <p><em>"Hello, little fish! What's your name?"</em> Henry asked in a gentle voice.</p>
 
-  <p>Once upon a time, there was a big, kind hippopotamus named Henry. He lived in a beautiful blue lake in Africa. Henry was very lonely because he had no friends.</p>
+        <p><em>"My name is Goldie,"</em> the fish said softly. <em>"I'm lost and I can't find my family."</em></p>
 
-  <p> One sunny morning, Henry saw a little goldfish swimming near the shore. The fish looked sad and scared.</p>
+        <p>Henry felt sorry for Goldie and wanted to help. They swam together on the lake and finally found a family of fish among the green algae.</p>
 
-  <p>- Hello, little fish! What's your name?" Henry asked in a gentle voice</p>
+        <p><strong>Since then, Henry and Goldie have become best friends. Henry never felt lonely again.</strong> ❤️</p>
+      </div>
+    </section>
 
-  <p>— My name is Goldie, the fish said softly. — I'm lost and I can't find my family.</p>
-
-  <p>Henry felt sorry for Goldie and wanted to help. They swam together on the lake and finally found a family of fish among the green algae.</p>
-
-  <p>Since then, Henry and Goldie have become best friends. Henry never felt lonely again.</p>
+  </div>
 
 </body>
 </html>
